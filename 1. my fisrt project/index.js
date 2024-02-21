@@ -90,20 +90,50 @@ const data = [
         "company": "Google"
     }
  ]
+// const http = require('http')
+// const server = http.createServer((req,res)=>{
+//     const jsondata = JSON.stringify(data)
+// res.write (jsondata)
+// res.end()
+
+
+// })
+// PORT = 3000
+// server.listen(PORT,()=>{
+// console.log(`Server is running at http://localhost:${PORT}`)
+
+
+//  })
+
+
+
 const http = require('http')
-const server = http.createServer((req,res)=>{
-    const jsondata = JSON.stringify(data)
-res.write (jsondata)
-res.end()
+ const server = http.createServer((req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+
+    
+    const htmlContent = data.map(event => `
+        <html>
+            <head>
+                <title>${data.title}</title>
+            </head>
+            <body>
+                <h1>${data.title}</h1>
+                <img src="${data.imageUrl}" alt="${data.title}">
+                <p>Price: $${data.price}</p>
+                <p>Date: ${data.date}</p>
+                <p>Location: ${data.location}</p>
+                <p>Company: ${data.company}</p>
+            </body>
+        </html>
+    `).join('');
+
+    res.end(htmlContent);
+});
+PORT = 3000
+server.listen(PORT,()=>{
+console.log(`Server is running at http://localhost:${PORT}`);
+
 
 
 })
-PORT = 3000
-server.listen(PORT,()=>{
-console.log(`Server is running at http://localhost:${PORT}`)
-
-
- })
-
-
- 
