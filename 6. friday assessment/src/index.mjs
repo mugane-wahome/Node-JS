@@ -1,10 +1,11 @@
 import { addJsonData, getProduct, addnewproduct } from "./addJsonData.mjs";
 
+
 import express from "express";
 
 const app = express();
 
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
 
@@ -18,9 +19,6 @@ app.post("/api/products", async (req, res) => {
   res.status(200).json(product);
   res.end();
 });
-
-
-
 
 addJsonData().then(() => {
   app.listen(PORT, () => console.log(`server running on port ${PORT}`));

@@ -118,7 +118,7 @@ const http = require('http')
                 <title>${data.title}</title>
             </head>
             <body>
-                <h1>${data.title}</h1>
+                
                 <img src="${data.imageUrl}" alt="${data.title}">
                 <p>Price: $${data.price}</p>
                 <p>Date: ${data.date}</p>
@@ -130,10 +130,13 @@ const http = require('http')
 
     res.end(htmlContent);
 });
-PORT = 3000
+PORT = 8000
 server.listen(PORT,()=>{
 console.log(`Server is running at http://localhost:${PORT}`);
 
 
 
 })
+
+
+

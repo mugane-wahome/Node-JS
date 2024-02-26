@@ -1,11 +1,7 @@
 
-// var fs = require("fs");
-// var createStream = fs.createWriteStream("files.txt");
-// createStream.end();
 
 
-const fsPromise = require('fs').promises
-const path = require('path')
+
 
 const createFile = async ()=>{
     try{
